@@ -60,12 +60,22 @@ function App() {
               </>
             )
           }}/>
-          <Route exact path="/about">
-            <div className="container">
-              <h3 className="text-center my-3">About</h3>
-              <p>This is a Todo List app built with React to help you manage your tasks.</p>
-            </div>
-          </Route>
+          <Route exact path="/about" render={() => {
+            return (
+              <div className="container">
+                <h3 className="text-center my-3">About</h3>
+                <p>This is a Todo List app built with React to help you manage your tasks.</p>
+              </div>
+            )
+          }}/>
+          <Route path="*" render={() => {
+            return (
+              <>
+                <AddTodo addTodo={addTodo}/>
+                <Todos todos={todos} onDelete={onDelete}/>
+              </>
+            )
+          }}/>
         </Switch>
         <Footer/>
       </Router>
